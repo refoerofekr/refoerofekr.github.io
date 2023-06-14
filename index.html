@@ -45,12 +45,13 @@ a {
 	padding-top: 15px;
 }
 
-.enjoy {
+.mainContent {
 	padding-top: 15px;
+	text-align: center;
 }
 
-.py-internal-0 {
-	color: red;
+#timer {
+	font-size: 25px;
 }
 
 </style>
@@ -63,16 +64,26 @@ a {
 			</div>
 
 			<div class="about_site">
-				This is a test service that can generate some simple games using smart-contracts and TON blockchain.
+				Right now this site can only count 10 seconds. But give him some time and he will suprise you.
 			</div>
-
-			<div class="enjoy">Enjoy the games!</div>
 		</div>
 
 		<div class="mainContent">
-			<py-script>
-				print('TestMessage 090wq9e8q09ewq809')
-			</py-script>
+    		<br>Timer:</br>
+    		<label id="timer"></label>
+		    <py-script>
+				import time
+				def countdown (time_sec):
+				     while time_sec:
+				        mins, secs = divmod(time_sec, 60)
+				        timeformat = '{:2d}:{:02d}'.format(mins, secs)
+				        pyscript.write('timer', timeformat)
+				        time.sleep(1)
+				        time_sec -= 1
+				countdown(10)
+		              
+
+		    </py-script>
 		</div>
 
 	</div>
