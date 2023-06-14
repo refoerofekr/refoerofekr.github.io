@@ -44,10 +44,13 @@ a {
 }
 
 .mainContent {
+	margin-top: 20px;
+}
+
+.timer {
 	padding: 20px;
 	background-color: #090C17;
 	border-radius: 20px;
-	margin-top: 20px;
 }
 
 #seconds {
@@ -81,6 +84,19 @@ a {
 
 }
 
+button {
+	background-color: #090C17;
+	color: #fff;
+	width: 100%;
+	padding: 10px;
+	border-radius: 20px;
+	border: none;
+	margin-top: 5px;
+	font-family: monospace;
+	font-size: 15px;
+
+}
+
 </style>
 </head>
 <body>
@@ -96,12 +112,14 @@ a {
 		</div>
 
 		<div class="mainContent">
-			<div class="timerh1">Timer:</div>
-			<div id='seconds'></div>
-			<div class="timerProgressbarBackground"></div> 
-		    <div class="timerProgressbar"></div> 
+			<div class="timer">
+				<div class="timerh1">Timer:</div>
+				<div id='seconds'></div>
+				<div class="timerProgressbarBackground"></div> 
+			    <div class="timerProgressbar"></div> 
+			 </div>	
 
-		   	<!--<button class="button">Reset time</button> -->
+		   	<button class="button">Reset time</button>
 
 
 		</div>
@@ -109,14 +127,13 @@ a {
 	</div>
 
 	<script type="text/javascript">
-		let time = 10;
+		let time = 10000;
 		const countdown = document.getElementById('seconds');
 		setInterval(updateCountdown, 10);
-
 		function updateCountdown(){
-			let seconds = time;
+			const seconds = time/1000
 			countdown.innerHTML = `${seconds}`;
-			time =  time - 0.01;		
+			time =  time - 10;		
 		}
 
 	</script>
