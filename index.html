@@ -101,7 +101,7 @@ a {
 				     while time_sec:
 				        mins, secs = divmod(time_sec, 60)
 				        timeformat = '{:2d}'.format(secs)
-				        pyscript.write('timer', timeformat)
+				        pyscript.write('timer', timeformat + 's')
 				        time.sleep(1)
 				        time_sec -= 1
 				countdown(10)
