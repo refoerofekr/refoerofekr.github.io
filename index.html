@@ -128,17 +128,15 @@ button {
 	</div>
 
 	<script type="text/javascript">
-		let time = 10000;
-		const countdown = document.getElementById('seconds');
-		setInterval(updateCountdown, 10);
-		function updateCountdown(){
-			const seconds = Math.floor(time/1000)
-			let miliseconds = time % 100
-			miliseconds = miliseconds < 10 ? '0' + miliseconds:miliseconds
-			countdown.innerHTML = `${seconds}:${miliseconds}`;
-			time =  time - 10;		
+	    let time = 10000;
+	    const countdown = document.getElementById('seconds');
+	    setInterval(updateCountdown, 10);
+	    function updateCountdown(){
+	      const seconds = time/1000
+	      countdown.innerHTML = `${seconds}` + 's';
+	      time =  time - 10;    
+	    }
 
-		}
 
 	</script>
 </body>
