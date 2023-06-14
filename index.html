@@ -48,14 +48,15 @@ a {
 }
 
 .timer {
-	padding: 20px;
+	padding: 100px;
 	background-color: #090C17;
 	border-radius: 20px;
+	text-align: center;
 }
 
 #seconds {
 	font-size: 25px;
-	display: flex;
+	margin: 0 auto;
 }
 
 .timerProgressbar {
@@ -131,9 +132,12 @@ button {
 		const countdown = document.getElementById('seconds');
 		setInterval(updateCountdown, 10);
 		function updateCountdown(){
-			const seconds = time/1000
-			countdown.innerHTML = `${seconds}`;
+			const seconds = Math.floor(time/1000)
+			let miliseconds = time % 100
+			miliseconds = miliseconds < 10 ? '0' + miliseconds:miliseconds
+			countdown.innerHTML = `${seconds}:${miliseconds}`;
 			time =  time - 10;		
+
 		}
 
 	</script>
