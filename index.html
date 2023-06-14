@@ -4,9 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SiteName</title>
+	<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+	<script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+
 
 body {
 	margin: 0;
@@ -33,56 +37,44 @@ a {
 	padding-top: 40px;
 }
 
-.body_content {
-	padding-top: 50px;
+.welcome {
+	font-size: 20px;
 }
 
-.main {
-	padding-top: 50px;
-	text-align: center;
+.about_site {
+	padding-top: 15px;
 }
 
-.main_number {
-	padding: 10px;
-	font-size: 40px;
+.enjoy {
+	padding-top: 15px;
 }
 
+.py-internal-0 {
+	color: red;
+}
 
 </style>
-
-<header>
+</head>
+<body>
 	<div class="container">
 		<div class="header_content">
-			<div class="header_sitename">
-				De-Generate
+			<div class="welcome">
+				Welcome!
 			</div>
-		</div>
-		
-		<div class="body_content">
+
 			<div class="about_site">
-				Service that allows you to generate a random number from 0 to 100 using a smart-contract on the TON blockchain.
-			</div>
-		
-			<div class="main">
-				<div class="about_main">
-					Smart-contract decided to give you a number
-				</div>
-			
-				<div class="main_number">0</div>
-
-				<a href='#' class="button">Generate again</a>
+				This is a test service that can generate some simple games using smart-contracts and TON blockchain.
 			</div>
 
+			<div class="enjoy">Enjoy the games!</div>
+		</div>
+
+		<div class="mainContent">
+			<py-script>
+				print('TestMessage 090wq9e8q09ewq809')
+			</py-script>
 		</div>
 
 	</div>
-</header>
-
-
-
-
-</head>
-<body>
-
 </body>
 </html>
