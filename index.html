@@ -4,8 +4,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SiteName</title>
-	<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-	<script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
@@ -47,20 +45,20 @@ a {
 
 .mainContent {
 	padding: 20px;
-	background-color: #0D1021;
+	background-color: #090C17;
 	border-radius: 20px;
 	margin-top: 20px;
 }
 
-#timer {
+#seconds {
 	font-size: 25px;
+	display: flex;
 }
 
 .timerProgressbar {
 	height: 3px;
 	margin-top: -3px;
-	animation-duration: 9s;
-	animation-delay: 4s;
+	animation-duration: 10s;
 	animation-name: progressBar;
 }
 
@@ -93,28 +91,34 @@ a {
 			</div>
 
 			<div class="about_site">
-				Right now this site can only count 10 seconds. But give him some time and he will suprise you.
+				Right now this site can only countdowm 10 seconds. But give him some time and he will suprise you.
 			</div>
 		</div>
 
 		<div class="mainContent">
-			<div class="timerh1">Timer (5s animation delay):</div>
-			<label id="timer"></label></text>
-		    <py-script>
-				import time
-				def countdown (time_sec):
-				     while time_sec:
-				        mins, secs = divmod(time_sec, 60)
-				        timeformat = '{:2d}'.format(secs)
-				        pyscript.write('timer', timeformat + 's')
-				        time.sleep(1)
-				        time_sec -= 1
-				countdown(9)
-		    </py-script>
+			<div class="timerh1">Timer:</div>
+			<div id='seconds'></div>
 			<div class="timerProgressbarBackground"></div> 
 		    <div class="timerProgressbar"></div> 
+
+		   	<!--<button class="button">Reset time</button> -->
+
+
 		</div>
 
 	</div>
+
+	<script type="text/javascript">
+		let time = 10;
+		const countdown = document.getElementById('seconds');
+		setInterval(updateCountdown, 10);
+
+		function updateCountdown(){
+			let seconds = time;
+			countdown.innerHTML = `${seconds}`;
+			time =  time - 0.01;		
+		}
+
+	</script>
 </body>
-</html>
+</html>			
