@@ -55,8 +55,8 @@ a {
 }
 
 .timerProgressbar {
-	background-color: green;
 	height: 3px;
+	margin-top: -3px;
 	animation-duration: 10s;
 	animation-name: progressBar;
 }
@@ -64,17 +64,20 @@ a {
 @keyframes progressBar {
 	from{
 		width: 100%;
+			background-color: green;
 	}
 
 	to {
 		width: 0%;
-	}
-
-	90% {
 		background-color: red;
 	}
 }
 
+.timerProgressbarBackground {
+	height: 3px;
+	background-color: #0D1021;
+
+}
 </style>
 </head>
 <body>
@@ -103,8 +106,8 @@ a {
 				        time_sec -= 1
 				countdown(10)
 		    </py-script>
-
-		    <div class="timerProgressbar"></div>   
+			<div class="timerProgressbarBackground"></div> 
+		    <div class="timerProgressbar"></div> 
 		</div>
 
 	</div>
