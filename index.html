@@ -29,8 +29,8 @@ a {
 }
 
 .container {
-	max-width: 300px;
-	width: 100%;
+	max-width: 400px;
+	width: 90%;
 	margin: 0 auto;
 	padding-top: 40px;
 }
@@ -48,29 +48,40 @@ a {
 }
 
 .timer {
-	padding: 100px;
+	width: 100%;
+	height: 250px;
 	background-color: #090C17;
 	border-radius: 20px;
 	text-align: center;
 }
 
+.timerDisplay {
+	padding-top: 80px;
+}
+
 #seconds {
-	font-size: 25px;
+	font-size: 30px;
 	margin: 0 auto;
 }
 
-.timerProgressbar {
+.progressBar {
+
 	height: 3px;
-	margin-top: -3px;
+	background-color: #00e0ff;
+	margin-top: 20px;
+	animation-duration: 5s;
+	animation-name: test;
+
 }
 
+@keyframes test{
+	0% {
+		width: 100%;
+	}
 
-
-.timerProgressbarBackground {
-	height: 3px;
-	background-color: #0F1327;
-	width: 100%;
-
+	 100%{
+		width: 0%;
+	}
 }
 
 button {
@@ -96,19 +107,24 @@ button {
 			</div>
 
 			<div class="about_site">
-				Right now this site can only countdowm 10 seconds. But give him some time and he will suprise you.
+				Right now this site can only countdown 5 seconds. But give him some time and he will suprise you.
 			</div>
 		</div>
 
 		<div class="mainContent">
 			<div class="timer">
-				<div class="timerh1">Timer:</div>
-				<div id='seconds'></div>
-				<div class="timerProgressbarBackground"></div> 
-			    <div class="timerProgressbar"></div> 
+				<div class="timerDisplay">					
+					<div id='seconds'>Not started</div>
+					<div class="aboutTimer">Game will start in</div>
+					<div class="progressBar"></div>
+					<div class="progressBarBackground"></div>
+				</div>
+			 
+
+
 			 </div>	
 
-		   	<button class="button" id = 'timerButton'>Reset time</button>
+		   	<button class="button" id = 'timerButton'>Start Game</button>
 
 
 		</div>
@@ -119,17 +135,16 @@ button {
 		let timer;
 
 		function startTimer() {
-		  let seconds = 1000; 
+		  let seconds =500; 
 		  const timerDisplay = document.getElementById('seconds'); 
 		  timerDisplay.textContent = seconds; 
-
 		  timer = setInterval(() => {
 		    seconds--;
-		    timerDisplay.textContent = seconds/100 + 's';
+		    timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
 
 		    if (seconds === 0) {
 		      clearInterval(timer);
-		      timerDisplay.innerHTML = 'start crash game'
+		      timerDisplay.innerHTML = 'GAME'
 		    }
 		  }, 10);
 		}
