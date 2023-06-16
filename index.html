@@ -124,7 +124,7 @@ button {
 		document.getElementById('timerButton').addEventListener('click', startTimer);	
 
 		function startTimer() {
-		  let seconds = 500; 
+		  let seconds = 1000; 
 		  const timerDisplay = document.getElementById('seconds');
 		  let bar_width = 100
 
@@ -133,7 +133,7 @@ button {
 		 
 		  timer = setInterval(() => {		    
 		  	seconds--;
-		    bar_width = bar_width-0.2;
+		    bar_width = bar_width-0.1;
 		    document.getElementById('bar').style.width = bar_width + '%'; 
 		    
 		    timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
