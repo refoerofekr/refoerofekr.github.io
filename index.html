@@ -129,7 +129,8 @@ button {
 		  
 		  timerDisplay.textContent = seconds; 
 		 
-		  timer = setInterval(() => {		    seconds--;
+		  timer = setInterval(() => {		    
+		  	seconds--;
 		    bar_width = bar_width-0.2;
 		    document.getElementById('bar').style.width = bar_width + '%'; 
 		    
