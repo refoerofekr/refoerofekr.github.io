@@ -125,11 +125,11 @@ button {
 		  let seconds = 500; 
 		  const timerDisplay = document.getElementById('seconds');
 		  let bar_width = 100
+
 		  
 		  timerDisplay.textContent = seconds; 
 		 
-		  timer = setInterval(() => {
-		    seconds--;
+		  timer = setInterval(() => {		    seconds--;
 		    bar_width = bar_width-0.2;
 		    document.getElementById('bar').style.width = bar_width + '%'; 
 		    
@@ -142,7 +142,6 @@ button {
 		      timerDisplay.innerHTML = 'GAME'
 		      timerButton.removeAttribute('disabled')
 		      timerButton.style.opacity = '100%';
-		      document.getElementById('bar').style.display = 'none'; 
 
 		    }
 		  }, 10);
