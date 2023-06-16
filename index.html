@@ -62,21 +62,9 @@ a {
 .timerProgressbar {
 	height: 3px;
 	margin-top: -3px;
-	animation-duration: 10s;
-	animation-name: progressBar;
 }
 
-@keyframes progressBar {
-	from{
-		width: 100%;
-			background-color: green;
-	}
 
-	to {
-		width: 0%;
-		background-color: red;
-	}
-}
 
 .timerProgressbarBackground {
 	height: 3px;
@@ -120,7 +108,7 @@ button {
 			    <div class="timerProgressbar"></div> 
 			 </div>	
 
-		   	<button class="button">Reset time</button>
+		   	<button class="button" id = 'timerButton'>Reset time</button>
 
 
 		</div>
@@ -128,16 +116,25 @@ button {
 	</div>
 
 	<script type="text/javascript">
-	    let time = 10000;
-	    const countdown = document.getElementById('seconds');
-	    setInterval(updateCountdown, 10);
-	    function updateCountdown(){
-	      const seconds = time/1000
-	      countdown.innerHTML = `${seconds}` + 's';
-	      time =  time - 10;    
-	    }
+		let timer;
 
+		function startTimer() {
+		  let seconds = 1000; 
+		  const timerDisplay = document.getElementById('seconds'); 
+		  timerDisplay.textContent = seconds; 
 
+		  timer = setInterval(() => {
+		    seconds--;
+		    timerDisplay.textContent = seconds/100 + 's';
+
+		    if (seconds === 0) {
+		      clearInterval(timer);
+		      timerDisplay.innerHTML = 'start crash game'
+		    }
+		  }, 10);
+		}
+
+			document.getElementById('timerButton').addEventListener('click', startTimer);	   
 	</script>
 </body>
 </html>			
