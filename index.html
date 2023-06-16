@@ -32,7 +32,7 @@ a {
 	max-width: 400px;
 	width: 90%;
 	margin: 0 auto;
-	padding-top: 40px;
+	padding-top: 100px;
 }
 
 .welcome {
@@ -65,23 +65,9 @@ a {
 }
 
 .progressBar {
-
 	height: 3px;
-	background-color: #00e0ff;
+	background-color: #254796;
 	margin-top: 20px;
-	animation-duration: 5s;
-	animation-name: test;
-
-}
-
-@keyframes test{
-	0% {
-		width: 100%;
-	}
-
-	 100%{
-		width: 0%;
-	}
 }
 
 button {
@@ -116,7 +102,7 @@ button {
 				<div class="timerDisplay">					
 					<div id='seconds'>Not started</div>
 					<div class="aboutTimer">Game will start in</div>
-					<div class="progressBar"></div>
+					<div class="progressBar" id = 'bar'></div>
 					<div class="progressBarBackground"></div>
 				</div>
 			 
@@ -133,23 +119,36 @@ button {
 
 	<script type="text/javascript">
 		let timer;
+		document.getElementById('timerButton').addEventListener('click', startTimer);	
 
 		function startTimer() {
-		  let seconds =500; 
-		  const timerDisplay = document.getElementById('seconds'); 
+		  let seconds = 500; 
+		  const timerDisplay = document.getElementById('seconds');
+		  let bar_width = 100
+		  
 		  timerDisplay.textContent = seconds; 
+		 
 		  timer = setInterval(() => {
 		    seconds--;
+		    bar_width = bar_width-0.2;
+		    document.getElementById('bar').style.width = bar_width + '%'; 
+		    
 		    timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
-
+		    timerButton.setAttribute('disabled', '');
+		    timerButton.style.opacity = '75%';
+		    
 		    if (seconds === 0) {
 		      clearInterval(timer);
 		      timerDisplay.innerHTML = 'GAME'
+		      timerButton.removeAttribute('disabled')
+		      timerButton.style.opacity = '100%';
+		      document.getElementById('bar').style.display = 'none'; 
+
 		    }
 		  }, 10);
 		}
 
-			document.getElementById('timerButton').addEventListener('click', startTimer);	   
+   
 	</script>
 </body>
 </html>			
