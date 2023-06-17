@@ -13,7 +13,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #0F1327;
+	background-color: #000;
 	color: #fff;
 	font-family: 'Open-Sans', sans-serif;
 	font-size: 15px;
@@ -36,12 +36,9 @@ a {
 	padding-top: 50px;
 }
 
-.welcome {
-	font-size: 30px;
-}
-
 .about_site {
 	padding-top: 15px;
+	font-weight: 300;
 
 }
 
@@ -52,7 +49,7 @@ a {
 .timer {
 	width: 100%;
 	height: 250px;
-	background-color: #090C17;
+	background-color: #181818;
 	border-radius: 20px;
 	text-align: center;
 }
@@ -64,20 +61,23 @@ a {
 #seconds {
 	font-size: 30px;
 	margin: 0 auto;
+	font-weight: 600;
 }
 
 
 .progressBar {
-	height: 3px;
-	background-color: #254796;
+	height: 1px;
+	background-color: #8F7DE1;
 	margin-top: 20px;
 }
 
-
+.aboutTimer {
+	color: #777;
+}
 
 button {
-	background-color: #090C17;
-	color: #fff;
+	background-color: #25232E;
+	color: #8F7DE1;
 	width: 100%;
 	padding: 10px;
 	border-radius: 20px;
@@ -92,20 +92,12 @@ button {
 </head>
 <body>
 	<div class="container">
-		<div class="header_content">
-			<div class="welcome">
-				Welcome!
-			</div>
-
-			<div class="about_site">
-				Right now this site can only countdown 10 seconds. But give him some time and he will suprise you.
-			</div>
-		</div>
 
 		<div class="mainContent">
 			<div class="timer">
 				<div class="timerDisplay">					
-					<div id='seconds'>Not started</div>
+					<div class="playersDisplay">Players: <span id="players">0</span></div>
+					<div id='seconds'>10.00s</div>
 					<div class="aboutTimer">Game will start in</div>
 					<div class="progressBar" id = 'bar'></div>
 				</div>
@@ -114,7 +106,7 @@ button {
 
 			 </div>	
 
-		   	<button class="button" id = 'timerButton'>Start Game</button>
+		   	<button class="button" id = 'timerButton'>+</button>
 
 
 		</div>
@@ -129,7 +121,6 @@ button {
 		  let seconds = 1000; 
 		  const timerDisplay = document.getElementById('seconds');
 		  let bar_width = 100
-
 		  
 		  timerDisplay.textContent = seconds; 
 		 
@@ -137,10 +128,11 @@ button {
 		  	seconds--;
 		    bar_width = bar_width-0.1;
 		    document.getElementById('bar').style.width = bar_width + '%'; 
-		    
+		    players.innerHTML = '1'
 		    timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
 		    timerButton.setAttribute('disabled', '');
 		    timerButton.style.opacity = '75%';
+
 		    
 		    if (seconds === 0) {
 		      clearInterval(timer);
