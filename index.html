@@ -13,11 +13,11 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #000;
+	background-color: #0B0B0B;
 	color: #fff;
 	font-family: 'Open-Sans', sans-serif;
 	font-size: 15px;
-		font-weight: 500;
+	font-weight: 500;
 }
 
 ul, li {
@@ -36,11 +36,7 @@ a {
 	padding-top: 50px;
 }
 
-.about_site {
-	padding-top: 15px;
-	font-weight: 300;
 
-}
 
 .mainContent {
 	margin-top: 20px;
@@ -51,11 +47,11 @@ a {
 	height: 250px;
 	background-color: #181818;
 	border-radius: 20px;
-	text-align: center;
 }
 
 .timerDisplay {
-	padding-top: 80px;
+	text-align: center;
+	margin-top: -20px;
 }
 
 #seconds {
@@ -64,6 +60,22 @@ a {
 	font-weight: 600;
 }
 
+.gameCounters {
+	padding: 20px;
+}
+
+#coefficient {
+	color: #8F7DE1;
+	font-size: 30px;
+}
+
+#bank {
+	color: #8F7DE1;
+}
+
+.playersDisplay {
+	color: #777;
+}
 
 .progressBar {
 	height: 1px;
@@ -95,8 +107,12 @@ button {
 
 		<div class="mainContent">
 			<div class="timer">
-				<div class="timerDisplay">					
+				<div class="gameCounters">
+					<div id = 'coefficient'>x0.00</div>
+					<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
 					<div class="playersDisplay">Players: <span id="players">0</span></div>
+				</div>
+				<div class="timerDisplay">					
 					<div id='seconds'>10.00s</div>
 					<div class="aboutTimer">Game will start in</div>
 					<div class="progressBar" id = 'bar'></div>
@@ -106,7 +122,7 @@ button {
 
 			 </div>	
 
-		   	<button class="button" id = 'timerButton'>+</button>
+		   	<button class="button" id = 'timerButton'>Join</button>
 
 
 		</div>
