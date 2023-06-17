@@ -36,8 +36,6 @@ a {
 	padding-top: 50px;
 }
 
-
-
 .mainContent {
 	margin-top: 20px;
 }
@@ -51,7 +49,7 @@ a {
 
 .timerDisplay {
 	text-align: center;
-	margin-top: -20px;
+	padding-top: 15px;
 }
 
 #seconds {
@@ -64,10 +62,6 @@ a {
 	padding: 20px;
 }
 
-#coefficient {
-	color: #8F7DE1;
-	font-size: 30px;
-}
 
 #bank {
 	color: #8F7DE1;
@@ -78,9 +72,23 @@ a {
 }
 
 .progressBar {
-	height: 1px;
+	height: 3px;
 	background-color: #8F7DE1;
-	margin-top: 20px;
+	width: 70%;
+	margin-left: 60px;
+}
+
+#barB {
+	height: 3px;
+	background-color: #777;
+	margin-top: -3px;
+	width: 70%;
+	margin-left: 60px;
+	display: none;
+}
+
+.bars {
+	padding-top: 20px;
 }
 
 .aboutTimer {
@@ -108,14 +116,16 @@ button {
 		<div class="mainContent">
 			<div class="timer">
 				<div class="gameCounters">
-					<div id = 'coefficient'>x0.00</div>
 					<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
 					<div class="playersDisplay">Players: <span id="players">0</span></div>
 				</div>
 				<div class="timerDisplay">					
 					<div id='seconds'>10.00s</div>
 					<div class="aboutTimer">Game will start in</div>
-					<div class="progressBar" id = 'bar'></div>
+					<div class="bars">
+						<div id = 'barB'></div>
+						<div class="progressBar" id = 'bar'></div>
+					</div>
 				</div>
 			 
 
@@ -136,15 +146,15 @@ button {
 		function startTimer() {
 		  let seconds = 1000; 
 		  const timerDisplay = document.getElementById('seconds');
-		  let bar_width = 100
+		  let bar_width = 70
 		  
 		  timerDisplay.textContent = seconds; 
 		 
 		  timer = setInterval(() => {		    
 		  	seconds--;
-		    bar_width = bar_width-0.1;
+		    bar_width = bar_width-0.07;
 		    document.getElementById('bar').style.width = bar_width + '%'; 
-		    players.innerHTML = '1'
+		    players.innerHTML = '1';
 		    timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
 		    timerButton.setAttribute('disabled', '');
 		    timerButton.style.opacity = '75%';
@@ -152,9 +162,10 @@ button {
 		    
 		    if (seconds === 0) {
 		      clearInterval(timer);
-		      timerDisplay.innerHTML = 'GAME'
-		      timerButton.removeAttribute('disabled')
+		      timerDisplay.innerHTML = 'GAME';
+		      timerButton.removeAttribute('disabled');
 		      timerButton.style.opacity = '100%';
+		      players.innerHTML = '0';
 
 		    }
 		  }, 10);
