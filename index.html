@@ -66,6 +66,12 @@ a {
 	font-weight: 600;
 }
 
+.actualCoefDisplay {
+	font-size: 30px;
+	font-weight: 600;
+	color: #8F7DE1;
+}
+
 .timer {
 	width: 100%;
 	height: 250px;
@@ -76,7 +82,7 @@ a {
 
 .timerDisplay {
 	text-align: center;
-	margin-top: -20px;
+	margin-top: -15px;
 
 }
 
@@ -90,10 +96,6 @@ a {
 	padding: 20px;
 }
 
-#actualCoef {
-	font-size: 30px;
-	color: #8F7DE1;
-}
 
 #bank {
 	color: #8F7DE1;
@@ -152,7 +154,7 @@ button {
 					<svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 -960 960 960" width="10" fill='#777'><path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z"/></svg>
 					
 
-					<a href="https://t.me/de_generate_bot/" >Back</a>
+					<a href="#" >Back</a>
 				</div>
 		
 				<div class="crash">
@@ -168,13 +170,13 @@ button {
 
 			<div class="timer">
 				<div class="gameCounters">
-					<div id = 'actualCoef'>x0.00</div>
+					<div class="actualCoefDisplay">x1.00</div>
 					<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
 					<div class="playersDisplay">Players: <span id="players">0</span></div>
 				</div>
 				<div class="timerDisplay">					
 					<div id='seconds'>10.00s</div>
-					<div class="aboutTimer" id = 'aboutTimer'>Game will start in</div>
+					<div class="aboutTimer">Game will start in</div>
 					<div class="bars">
 						<div id = 'barB'></div>
 						<div class="progressBar" id = 'bar'></div>
@@ -193,43 +195,38 @@ button {
 	</div>
 
 	<script type="text/javascript">
-		let progress
-		let seconds = 1000; 
-		const timerDisplay = document.getElementById('seconds');
-		let bar_width = 85
-
-
 		let timer;
 		document.getElementById('timerButton').addEventListener('click', startTimer);	
 
 		function startTimer() {
-  
-		  timerDisplay.innerHTML = seconds; 
+		  let seconds = 1000; 
+		  const timerDisplay = document.getElementById('seconds');
+		  let bar_width = 85
+		  
+		  timerDisplay.textContent = seconds; 
 		 
 		  timer = setInterval(() => {		    
-		  	players.innerHTML = '0';
 		  	seconds--;
 		    bar_width = bar_width-0.085;
 		    document.getElementById('bar').style.width = bar_width + '%'; 
 		    players.innerHTML = '1';
-		    timerDisplay.innerHTML = (seconds/100).toFixed(2) + 's';
+		    timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
 		    timerButton.setAttribute('disabled', '');
 		    timerButton.style.opacity = '75%';
 
 		    
 		    if (seconds === 0) {
 		      clearInterval(timer);
-		      aboutTimer.style.display = 'none';
-		      crashInProcess();
-	
-		      //timerButton.removeAttribute('disabled');		   		
-		    }}, 10);
+		      timerDisplay.innerHTML = 'GAME';
+		      timerButton.removeAttribute('disabled');
+		      timerButton.style.opacity = '100%';
+		      players.innerHTML = '0';
 
-}
+		    }
+		  }, 10);
+		}
 
-
-
-
+   
 	</script>
 </body>
 </html>			
