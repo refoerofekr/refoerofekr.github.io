@@ -66,12 +66,6 @@ a {
 	font-weight: 600;
 }
 
-#coefDisplay {
-	font-size: 20px;
-	font-weight: 600;
-	color: #8F7DE1;
-}
-
 .timer {
 	width: 100%;
 	height: 250px;
@@ -82,7 +76,6 @@ a {
 
 .timerDisplay {
 	text-align: center;
-	margin-top: -15px;
 
 }
 
@@ -174,7 +167,6 @@ button {
 
 			<div class="timer">
 				<div class="gameCounters">
-					<div id="coefDisplay">x1.00</div>
 					<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
 					<div class="playersDisplay">Players: <span id="players">0</span></div>
 				</div>
@@ -182,7 +174,7 @@ button {
 					<div id='seconds'>10.00s</div>
 					<div class="aboutTimer" id='aboutTimer'>Game will start in</div>
 					<div id='crashRocket'>
-						<svg xmlns="http://www.w3.org/2000/svg" height="60" viewBox="0 -960 960 960" width="60" fill='#8F7DE1'><path d="m195-575 88 38q15-27 31-55t33-54l-68-13-84 84Zm164 94 126 127q63-32 109-61.5t76-59.5q77-78 114-157t43-191q-112 6-191 43T480-666q-30 30-59.5 76T359-481Zm238-111q-19-19-19-46t19-46q19-18 45.5-18t45.5 18q18 19 18 46t-18 46q-19 18-45.5 18T597-592Zm-19 401 85-84-13-68q-26 17-54 33.5T541-279l37 88Zm348-730q7 166-38.5 286T745-417q-3 2-6 5.5t-5 5.5l22 112q5 24-2.5 46.5T729-208L547-25 446-260 264-442 29-543l184-182q17-17 39-24.5t46-2.5l112 22q2-2 5-4l6-4q98-99 218.5-144.5T926-921ZM118-321q43-43 102.5-43T322-322q41 41 41 101t-42 102q-33 33-102 54T34-33q11-116 31.5-186T118-321Zm67 67q-13 14-20.5 38T149-148q44-8 68-16.5t37-21.5q16-13 15.5-33.5T255-256q-16-14-36.5-13.5T185-254Z"/></svg>
+						<svg id = 'crashRocketSvg' xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 -960 960 960" width="40" fill='#8F7DE1' ><path d="m195-575 88 38q15-27 31-55t33-54l-68-13-84 84Zm164 94 126 127q63-32 109-61.5t76-59.5q77-78 114-157t43-191q-112 6-191 43T480-666q-30 30-59.5 76T359-481Zm238-111q-19-19-19-46t19-46q19-18 45.5-18t45.5 18q18 19 18 46t-18 46q-19 18-45.5 18T597-592Zm-19 401 85-84-13-68q-26 17-54 33.5T541-279l37 88Zm348-730q7 166-38.5 286T745-417q-3 2-6 5.5t-5 5.5l22 112q5 24-2.5 46.5T729-208L547-25 446-260 264-442 29-543l184-182q17-17 39-24.5t46-2.5l112 22q2-2 5-4l6-4q98-99 218.5-144.5T926-921ZM118-321q43-43 102.5-43T322-322q41 41 41 101t-42 102q-33 33-102 54T34-33q11-116 31.5-186T118-321Zm67 67q-13 14-20.5 38T149-148q44-8 68-16.5t37-21.5q16-13 15.5-33.5T255-256q-16-14-36.5-13.5T185-254Z"/></svg>
 					</div>
 					<div class="bars">
 						<div id = 'barB'></div>
@@ -206,16 +198,30 @@ button {
 		document.getElementById('timerButton').addEventListener('click', startTimer);	
 
 		function coefCounter(){
-			const coefDisplay = document.getElementById('coefDisplay');
-		    let gameCoef = (Math.floor()*5).toFixed(2);
+			const timerDisplay = document.getElementById('seconds');
+		    let gameCoef = Math.random()*5;
 		    let actualCoef = 1;
-		    while (actualCoef<gameCoef){
-		      	actualCoef = actualCoef + 0.1;
-		      	coefDisplay.textContent = actualCoef;}
-		     if (actualCoef = gameCoef) {
-		      	coefDisplay.style.color = 'red';
-		      	}
-		      }	
+		    timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2);
+		    timerDisplay.style.color = 'red';
+		    document.getElementById('aboutTimer').style.display = 'none';
+		    document.getElementById('bar').style.display = 'none';
+		    document.getElementById('crashRocket').style.display = 'block';
+		    timerButton.removeAttribute('disabled');
+		    timerButton.style.opacity = '100%';
+		    document.getElementById('crashRocketSvg').style.fill = 'red';
+		     }
+
+		function crashRocketMove(){
+			let count = 1000;
+			let x = Math.random();
+			let y = Math.random();
+			while (count>1){
+				document.getElementById('crashRocketSvg').style.transform = 'tranlateX('+x+'px)';
+			    document.getElementById('crashRocketSvg').style.transform = 'tranlateY('+y+'px)';
+			    count--;
+			}
+		}	
+		setTimeout(crashRocketMove, 10)
 
 		function startTimer() {
 		  let seconds = 1000; 
@@ -225,7 +231,7 @@ button {
 		  timerDisplay.textContent = seconds; 
 		 
 		  timer = setInterval(() => {		    
-		  	timerDisplay.style.display = 'block';
+		  	timerDisplay.style.color = '#fff';
 		  	document.getElementById('aboutTimer').style.display = 'block';
 		  	document.getElementById('bar').style.display = 'block';
 		  	document.getElementById('crashRocket').style.display = 'none';
@@ -240,14 +246,8 @@ button {
 		    
 		    if (seconds === 0) {
 		      clearInterval(timer);
-		      timerDisplay.style.display = 'none';
-		      document.getElementById('aboutTimer').style.display = 'none';
-		      document.getElementById('bar').style.display = 'none';
-		      document.getElementById('crashRocket').style.display = 'block';
-		      timerButton.removeAttribute('disabled');
-		      timerButton.style.opacity = '100%';
-		      document.getElementById('rocketCrash').style.display = 'block';
-		      setTimeout(coefCounter, 10)}
+		      coefCounter();
+		      }
 		  }, 10);
 		}
 
