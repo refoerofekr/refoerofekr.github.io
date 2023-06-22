@@ -47,9 +47,10 @@ a {
 }
 
 .back {
-	background-color: #181818;
+	background-color: #131517;
 	padding: 10px 20px 10px 20px;
 	border-radius: 10px;
+	opacity: 75%;
 }
 
 .crash {
@@ -73,11 +74,14 @@ a {
 	background-color: #131517;
 	border-radius: 20px 20px 0px 0px;
 	margin-top: 10px;
+	display: ;
+  	justify-content: center;
+	align-items: center;
 }
 
 .timerDisplay {
 	text-align: center;
-	padding-top: 80px;
+	padding-top: 50px;
 
 }
 
@@ -88,7 +92,7 @@ a {
 }
 
 .gameCounters {
-	padding: 20px;
+	padding: 40px;
 }
 
 
@@ -103,9 +107,7 @@ a {
 .progressBar {
 	height: 3px;
 	background-color: #8F7DE1;
-	width: 85%;
-	margin-left: 25px;
-	display: flex;
+	width: 100%;
 }
 
 #barB {
@@ -187,50 +189,66 @@ button {
 
 	</div>
 
-	<script type="text/javascript">
-		let timer;
-		const timerDisplay = document.getElementById('seconds');
-		document.getElementById('timerButton').addEventListener('click', startTimer);	
+<script type="text/javascript">
+let timer;
+const timerDisplay = document.getElementById('seconds');
+let actualCoef = 1;
+document.getElementById('timerButton').addEventListener('click', startTimer);	
 
-		function startTimer() {
-		    let seconds = 1000; 
-		  	let bar_width = 85;
-		  
-		  	timerDisplay.textContent = seconds; 
+// функция запуска таймера
+function startTimer() {
+
+	let gameCoef = Math.random()*5;
+	let seconds = 1000; 
+	let bar_width = 100;
+	  
+	timerDisplay.textContent = seconds; 
 		 
-		  	timer = setInterval(() => {		    
-			  	timerDisplay.style.color = '#fff';
-			  	document.getElementById('bar').style.display = 'block';
-			  	seconds--;
-			    bar_width = bar_width-0.085; 
-			    document.getElementById('bar').style.width = bar_width + '%'; 
-			    players.innerHTML = '1';
-			    timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
-			    timerButton.setAttribute('disabled', '');
-			    timerButton.style.opacity = '75%';
-		    
-			    if (seconds === 0) {
-			        let gameCoef = Math.random()*5;
-				    timerDisplay.innerHTML = 'x1.00';
-				    timerDisplay.style.color = '#8F7DE1';
-				    clearInterval(timer);
-				    let test = setInterval(function coefCounter(){
-				    let actualCoef = 1;
-				    document.getElementById('bar').style.display = 'none';
-				    actualCoef += 0.01;
-			        if (actualCoef === gameCoef){
-				      	clearInterval(test);
-						timerDisplay.innerHTML = actualCoef;
-						timerDisplay.style.color = '#FF004D';			
-						timerButton.removeAttribute('disabled');
-						timerButton.style.opacity = '100%';}
-				    if (gameCoef<1.01){
-						timerDisplay.innerHTML = 'x1.00';
-						timerDisplay.style.color = '#FF004D';			
-					    timerButton.removeAttribute('disabled');
-					    timerButton.style.opacity = '100%';}}, 1000);}}, 10);}
-  
-   
+	timer = setInterval(() => {		    
+	timerDisplay.style.color = '#fff';
+	document.getElementById('bar').style.display = 'block';
+	bar_width = bar_width-0.1; 
+	seconds--;
+	document.getElementById('bar').style.width = bar_width + '%'; 
+	players.innerHTML = '1';
+	timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
+	timerButton.setAttribute('disabled', '');
+	timerButton.style.opacity = '75%';	
+	// когда таймер доходит до нуля
+	if (seconds === 0) {
+	 	clearInterval(timer);
+		timerDisplay.innerHTML = 'x1.00';
+		timerDisplay.style.color = '#8F7DE1';
+		let test = setInterval(function coefCounter(){
+		    console.log('==== test5 ====')
+			document.getElementById('bar').style.display = 'none';
+			actualCoef += 0.01;
+			timerDisplay.innerHTML = 'x' + actualCoef.toFixed(2);
+		    console.log('==== test6 ====')
+		    // выполняется нормально 
+
+
+		    console.log(gameCoef)
+		if (actualCoef > gameCoef){
+		    console.log('==== test7 ====')
+			clearInterval(test);
+			timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2)
+			timerDisplay.style.color = '#FF004D';			
+			timerButton.removeAttribute('disabled');
+			timerButton.style.opacity = '100%';
+			console.log('==== test8 ====')}
+		if (gameCoef<1.01){
+			console.log('==== test9 ====')
+			clearInterval(test);
+			timerDisplay.innerHTML = 'x1.00';
+			timerDisplay.style.color = '#FF004D';			
+			timerButton.removeAttribute('disabled');
+			timerButton.style.opacity = '100%';
+			console.log('==== test10 ====')}
+			}, 10)}
+	}, 10);}
+	  
+	   
 	</script>
 </body>
 </html>			
