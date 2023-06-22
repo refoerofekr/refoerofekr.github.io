@@ -4,11 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SiteName</title>
-
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
-
-
 
 body {
 	margin: 0;
@@ -82,7 +79,6 @@ a {
 .timerDisplay {
 	text-align: center;
 	padding-top: 50px;
-
 }
 
 #seconds {
@@ -94,7 +90,6 @@ a {
 .gameCounters {
 	padding: 40px;
 }
-
 
 #bank {
 	color: #8F7DE1;
@@ -133,7 +128,6 @@ button {
 	margin-top: 5px;
 	font-family: 'Open-Sans', sans-serif;
 	font-size: 15px;
-
 }
 
 #crashRocket {
@@ -144,27 +138,19 @@ button {
 </head>
 <body>
 	<div class="container">
-
 		<div class="mainContent">
 			<div class="aboutGameCrash">
 				<div class="back">
 					<svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 -960 960 960" width="10" fill='#777'><path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z"/></svg>
-					
-
 					<a href="#" >Back</a>
 				</div>
-		
 				<div class="crash">
-					<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill='#8F7DE1'><path d="m195-575 88 38q15-27 31-55t33-54l-68-13-84 84Zm164 94 126 127q63-32 109-61.5t76-59.5q77-78 114-157t43-191q-112 6-191 43T480-666q-30 30-59.5 76T359-481Zm238-111q-19-19-19-46t19-46q19-18 45.5-18t45.5 18q18 19 18 46t-18 46q-19 18-45.5 18T597-592Zm-19 401 85-84-13-68q-26 17-54 33.5T541-279l37 88Zm348-730q7 166-38.5 286T745-417q-3 2-6 5.5t-5 5.5l22 112q5 24-2.5 46.5T729-208L547-25 446-260 264-442 29-543l184-182q17-17 39-24.5t46-2.5l112 22q2-2 5-4l6-4q98-99 218.5-144.5T926-921ZM118-321q43-43 102.5-43T322-322q41 41 41 101t-42 102q-33 33-102 54T34-33q11-116 31.5-186T118-321Zm67 67q-13 14-20.5 38T149-148q44-8 68-16.5t37-21.5q16-13 15.5-33.5T255-256q-16-14-36.5-13.5T185-254Z"/></svg>
-
-					
+					<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill='#8F7DE1'><path d="m195-575 88 38q15-27 31-55t33-54l-68-13-84 84Zm164 94 126 127q63-32 109-61.5t76-59.5q77-78 114-157t43-191q-112 6-191 43T480-666q-30 30-59.5 76T359-481Zm238-111q-19-19-19-46t19-46q19-18 45.5-18t45.5 18q18 19 18 46t-18 46q-19 18-45.5 18T597-592Zm-19 401 85-84-13-68q-26 17-54 33.5T541-279l37 88Zm348-730q7 166-38.5 286T745-417q-3 2-6 5.5t-5 5.5l22 112q5 24-2.5 46.5T729-208L547-25 446-260 264-442 29-543l184-182q17-17 39-24.5t46-2.5l112 22q2-2 5-4l6-4q98-99 218.5-144.5T926-921ZM118-321q43-43 102.5-43T322-322q41 41 41 101t-42 102q-33 33-102 54T34-33q11-116 31.5-186T118-321Zm67 67q-13 14-20.5 38T149-148q44-8 68-16.5t37-21.5q16-13 15.5-33.5T255-256q-16-14-36.5-13.5T185-254Z"/></svg>					
 					<div class='gameName'>
 						Crash
 					</div>
-				
 				</div>
 			</div>
-
 			<div class="timer">
 				<div class="gameCounters">
 					<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
@@ -177,16 +163,9 @@ button {
 						<div class="progressBar" id = 'bar'></div>
 					</div>
 				</div>
-			 
-
-
 			 </div>	
-
 		   	<button class="button" id = 'timerButton'>Join</button>
-
-
 		</div>
-
 	</div>
 
 <script type="text/javascript">
@@ -220,35 +199,27 @@ function startTimer() {
 		timerDisplay.innerHTML = 'x1.00';
 		timerDisplay.style.color = '#8F7DE1';
 		let test = setInterval(function coefCounter(){
-		    console.log('==== test5 ====')
 			document.getElementById('bar').style.display = 'none';
 			actualCoef += 0.01;
 			timerDisplay.innerHTML = 'x' + actualCoef.toFixed(2);
-		    console.log('==== test6 ====')
 		    // выполняется нормально 
-
-
 		    console.log(gameCoef)
 		if (actualCoef > gameCoef){
-		    console.log('==== test7 ====')
 			clearInterval(test);
 			timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2)
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
 			timerButton.style.opacity = '100%';
-			console.log('==== test8 ====')}
+			let actualCoef = 1;}
 		if (gameCoef<1.01){
-			console.log('==== test9 ====')
 			clearInterval(test);
 			timerDisplay.innerHTML = 'x1.00';
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
-			timerButton.style.opacity = '100%';
-			console.log('==== test10 ====')}
-			}, 10)}
+			timerButton.style.opacity = '100%';;
+			let actualCoef = 1;}
+			}, 150)}
 	}, 10);}
-	  
-	   
-	</script>
+</script>
 </body>
 </html>			
