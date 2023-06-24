@@ -153,6 +153,7 @@ button {
 				</div>
 			</div>
 			<div class="timer">
+				<!--<canvas id='canvas'></canvas>-->
 				<div class="gameCounters">
 					<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
 					<div class="playersDisplay">Players: <span id="players">0</span></div>
@@ -173,12 +174,25 @@ button {
 let timer;
 const timerDisplay = document.getElementById('seconds');
 let actualCoef = 1;
-document.getElementById('timerButton').addEventListener('click', startTimer);	
+document.getElementById('timerButton').addEventListener('click', startTimer);
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var x=0;
+var test;
+
+//function draw(){
+	//y =100+50*Math.sin(x/-20);
+	//x = x+0.1;
+	//ctx.fillRect(x,y, 3,3);
+	//test = setTimeout(draw, 1)
+//}
+//draw();
+
 
 // функция запуска таймера
 function startTimer() {
 
-	let gameCoef = Math.random()*5;
+    let gameCoef = Math.random()*5;
 	let seconds = 1000; 
 	let bar_width = 100;
 	  
