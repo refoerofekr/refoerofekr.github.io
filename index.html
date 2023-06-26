@@ -37,10 +37,11 @@ a {
 	margin-top: 20px;
 }
 
-.aboutGameCrash {
+.aboutGame {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin-top: 20px;
 }
 
 .back {
@@ -71,14 +72,13 @@ a {
 	background-color: #131517;
 	border-radius: 20px 20px 0px 0px;
 	margin-top: 10px;
-	display: ;
   	justify-content: center;
 	align-items: center;
 }
 
 .timerDisplay {
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 85px;
 }
 
 #seconds {
@@ -88,7 +88,7 @@ a {
 }
 
 .gameCounters {
-	padding: 40px;
+	padding: 20px;
 	font-weight: 300;
 }
 
@@ -130,43 +130,80 @@ button {
 	font-family: 'Open-Sans', sans-serif;
 	font-size: 15px;
 }
-
 #crashRocket {
 	display: none;
 }
+
+.rouletteGame {
+	padding-top: 20px;
+}
+
+.rouletteDisplay {
+	width: 100%;
+	max-height: 400px;
+	height: 400px;
+	margin-top: 10px;
+	background-color: #131517;
+	border-radius: 20px 20px 0px 0px;
+}
+
+
+
+
 
 </style>
 </head>
 <body>
 	<div class="container">
 		<div class="mainContent">
-			<div class="aboutGameCrash">
-				<div class="back">
-					<svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 -960 960 960" width="10" fill='#777'><path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z"/></svg>
-					<a href="#" >Back</a>
-				</div>
-				<div class="crash">
-					<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill='#8F7DE1'><path d="m195-575 88 38q15-27 31-55t33-54l-68-13-84 84Zm164 94 126 127q63-32 109-61.5t76-59.5q77-78 114-157t43-191q-112 6-191 43T480-666q-30 30-59.5 76T359-481Zm238-111q-19-19-19-46t19-46q19-18 45.5-18t45.5 18q18 19 18 46t-18 46q-19 18-45.5 18T597-592Zm-19 401 85-84-13-68q-26 17-54 33.5T541-279l37 88Zm348-730q7 166-38.5 286T745-417q-3 2-6 5.5t-5 5.5l22 112q5 24-2.5 46.5T729-208L547-25 446-260 264-442 29-543l184-182q17-17 39-24.5t46-2.5l112 22q2-2 5-4l6-4q98-99 218.5-144.5T926-921ZM118-321q43-43 102.5-43T322-322q41 41 41 101t-42 102q-33 33-102 54T34-33q11-116 31.5-186T118-321Zm67 67q-13 14-20.5 38T149-148q44-8 68-16.5t37-21.5q16-13 15.5-33.5T255-256q-16-14-36.5-13.5T185-254Z"/></svg>					
-					<div class='gameName'>
-						Crash
+			<div class="crashGame">
+				<div class="aboutGame">
+					<div class="back">
+						<svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 -960 960 960" width="10" fill='#777'><path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z"/></svg>
+						<a href="#" >Back</a>
+					</div>
+					<div class="crash">
+						<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill='#8F7DE1'><path d="m195-575 88 38q15-27 31-55t33-54l-68-13-84 84Zm164 94 126 127q63-32 109-61.5t76-59.5q77-78 114-157t43-191q-112 6-191 43T480-666q-30 30-59.5 76T359-481Zm238-111q-19-19-19-46t19-46q19-18 45.5-18t45.5 18q18 19 18 46t-18 46q-19 18-45.5 18T597-592Zm-19 401 85-84-13-68q-26 17-54 33.5T541-279l37 88Zm348-730q7 166-38.5 286T745-417q-3 2-6 5.5t-5 5.5l22 112q5 24-2.5 46.5T729-208L547-25 446-260 264-442 29-543l184-182q17-17 39-24.5t46-2.5l112 22q2-2 5-4l6-4q98-99 218.5-144.5T926-921ZM118-321q43-43 102.5-43T322-322q41 41 41 101t-42 102q-33 33-102 54T34-33q11-116 31.5-186T118-321Zm67 67q-13 14-20.5 38T149-148q44-8 68-16.5t37-21.5q16-13 15.5-33.5T255-256q-16-14-36.5-13.5T185-254Z"/></svg>					
+						<div class='gameName'>
+							Crash
+						</div>
 					</div>
 				</div>
+				<div class="timer">
+					<div class="gameCounters">
+						<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
+						<div class="playersDisplay">Players: <span id="players">0</span></div>
+					</div>
+					<div class="timerDisplay">					
+						<div id='seconds'>10.00s</div>
+						<div class="bars">
+							<div id = 'barB'></div>
+							<div class="progressBar" id = 'bar'></div>
+						</div>
+					</div>
+				 </div>	
+			   	<button class="button" id = 'timerButton'>Join</button>
 			</div>
-			<div class="timer">
-				<!--<canvas id='canvas'></canvas>-->
-				<div class="gameCounters">
-					<div class="bankDisplay">In game: <span id="bank">0 TON</span></div>
-					<div class="playersDisplay">Players: <span id="players">0</span></div>
-				</div>
-				<div class="timerDisplay">					
-					<div id='seconds'>10.00s</div>
-					<div class="bars">
-						<div id = 'barB'></div>
-						<div class="progressBar" id = 'bar'></div>
+		
+			<div class="rouletteGame">
+				<div class="aboutGame">
+					<div class="back">
+						<svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 -960 960 960" width="10" fill='#777'><path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z"/></svg>
+						<a href="#" >Back</a>
+					</div>
+					<div class="crash">
+						<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill='#8F7DE1'><path d="M315.118-265Q336-265 350.5-279.618q14.5-14.617 14.5-35.5Q365-336 350.382-350.5q-14.617-14.5-35.5-14.5Q294-365 279.5-350.382q-14.5 14.617-14.5 35.5Q265-294 279.618-279.5q14.617 14.5 35.5 14.5Zm0-330Q336-595 350.5-609.618q14.5-14.617 14.5-35.5Q365-666 350.382-680.5q-14.617-14.5-35.5-14.5Q294-695 279.5-680.382q-14.5 14.617-14.5 35.5Q265-624 279.618-609.5q14.617 14.5 35.5 14.5Zm165 165Q501-430 515.5-444.618q14.5-14.617 14.5-35.5Q530-501 515.382-515.5q-14.617-14.5-35.5-14.5Q459-530 444.5-515.382q-14.5 14.617-14.5 35.5Q430-459 444.618-444.5q14.617 14.5 35.5 14.5Zm165 165Q666-265 680.5-279.618q14.5-14.617 14.5-35.5Q695-336 680.382-350.5q-14.617-14.5-35.5-14.5Q624-365 609.5-350.382q-14.5 14.617-14.5 35.5Q595-294 609.618-279.5q14.617 14.5 35.5 14.5Zm0-330Q666-595 680.5-609.618q14.5-14.617 14.5-35.5Q695-666 680.382-680.5q-14.617-14.5-35.5-14.5Q624-695 609.5-680.382q-14.5 14.617-14.5 35.5Q595-624 609.618-609.5q14.617 14.5 35.5 14.5ZM189-95q-39.05 0-66.525-27.475Q95-149.95 95-189v-582q0-39.463 27.475-67.231Q149.95-866 189-866h582q39.463 0 67.231 27.769Q866-810.463 866-771v582q0 39.05-27.769 66.525Q810.463-95 771-95H189Zm0-94h582v-582H189v582Zm0-582v582-582Z"/></svg>
+
+						<div class='gameName'>
+							Roulette
+						</div>
 					</div>
 				</div>
-			 </div>	
-		   	<button class="button" id = 'timerButton'>Join</button>
+
+				<div class="rouletteDisplay">
+				</div>	
+					<button class="buttonRoulette" id = 'timerButton'>Join</button>
+			</div>
 		</div>
 	</div>
 
@@ -180,13 +217,12 @@ var ctx = canvas.getContext('2d');
 var x=0;
 var test;
 
-//function draw(){
-	//y =100+50*Math.sin(x/-20);
-	//x = x+0.1;
-	//ctx.fillRect(x,y, 3,3);
-	//test = setTimeout(draw, 1)
-//}
-//draw();
+function draw(){
+	y = 100+50*Math.sin(x^2);
+	x = x+0.01;
+	ctx.fillRect(x,y, 1,1);
+	test = setTimeout(draw, 10)}
+draw();
 
 
 // функция запуска таймера
@@ -220,19 +256,20 @@ function startTimer() {
 		    // выполняется нормально 
 		    console.log(gameCoef)
 		if (actualCoef > gameCoef){
-			clearInterval(test);
 			timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2)
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
 			timerButton.style.opacity = '100%';
-			let actualCoef = 1;}
-		if (gameCoef<1.01){
+			
 			clearInterval(test);
+			actualCoef = 1;}
+		if (gameCoef<1.01){
 			timerDisplay.innerHTML = 'x1.00';
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
-			timerButton.style.opacity = '100%';;
-			let actualCoef = 1;}
+			timerButton.style.opacity = '100%';
+			clearInterval(test);
+			actualCoef = 1;}
 			}, 150)}
 	}, 10);}
 </script>
