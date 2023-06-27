@@ -246,7 +246,7 @@ function startTimer() {
 	timerButton.style.opacity = '75%';	
 	// когда таймер доходит до нуля
 	if (seconds === 0) {
-	 	clearInterval(timer);
+	 	clearInterval(timer);;
 		timerDisplay.innerHTML = 'x1.00';
 		timerDisplay.style.color = '#8F7DE1';
 		let test = setInterval(function coefCounter(){
@@ -256,19 +256,20 @@ function startTimer() {
 		    // выполняется нормально 
 		    console.log(gameCoef)
 		if (actualCoef > gameCoef){
+			clearInterval(test);;
 			timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2)
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
 			timerButton.style.opacity = '100%';
-			
+
 			clearInterval(test);
 			actualCoef = 1;}
-		if (gameCoef<1.01){
+		if (gameCoef<1.01){		
+			clearInterval(test);;
 			timerDisplay.innerHTML = 'x1.00';
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
 			timerButton.style.opacity = '100%';
-			clearInterval(test);
 			actualCoef = 1;}
 			}, 150)}
 	}, 10);}
