@@ -240,7 +240,7 @@ button {
 						<div class="playersDisplay">Players: <span id="players">0</span></div>
 					</div>
 					<div class="timerDisplay">					
-						<div id='seconds'>9.99s</div>
+						<div id='seconds'>10.00s</div>
 						<div class="bars">
 							<div id = 'barB'></div>
 							<div class="progressBar" id = 'bar'></div>
@@ -277,29 +277,19 @@ let timer;
 const timerDisplay = document.getElementById('seconds');
 let actualCoef = 1;
 document.getElementById('timerButton').addEventListener('click', startTimer);
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
-var x=0;
-var test;
-
-function draw(){
-	y = 100+50*Math.sin(x^2);
-	x = x+0.01;
-	ctx.fillRect(x,y, 1,1);
-	test = setTimeout(draw, 10)}
-draw();
-
 
 // функция запуска таймера
-function startTimer() {
-
+function startTimer() {	 
+	let timerButton = document.getElementById('timerButton')
+	timerButton.style.opacity = '75%';
+	timerButton.setAttribute('disabled', '');	
     let gameCoef = Math.random()*5;
 	let seconds = 1000; 
 	let bar_width = 100;
 	  
 	timerDisplay.textContent = seconds; 
 		 
-	timer = setInterval(() => {		    
+	timer = setInterval(() => {   
 	timerDisplay.style.color = '#fff';
 	document.getElementById('bar').style.display = 'block';
 	bar_width = bar_width-0.1; 
@@ -307,11 +297,11 @@ function startTimer() {
 	document.getElementById('bar').style.width = bar_width + '%'; 
 	players.innerHTML = '1';
 	timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
-	timerButton.setAttribute('disabled', '');
-	timerButton.style.opacity = '75%';	
 	// когда таймер доходит до нуля
 	if (seconds === 0) {
-	 	clearInterval(timer);;
+	 	console.log('test1')
+	 	clearInterval(timer);
+	 	console.log('test2')
 		timerDisplay.innerHTML = 'x1.00';
 		timerDisplay.style.color = '#8F7DE1';
 		let test = setInterval(function coefCounter(){
@@ -321,14 +311,14 @@ function startTimer() {
 		    // выполняется нормально 
 		    console.log(gameCoef)
 		if (actualCoef > gameCoef){
-			clearInterval(test);;
+			clearInterval(test);
 			timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2)
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
 			timerButton.style.opacity = '100%';
 			actualCoef = 1;}
 		if (gameCoef<1.01){		
-			clearInterval(test);;
+			clearInterval(test);
 			timerDisplay.innerHTML = 'x1.00';
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
