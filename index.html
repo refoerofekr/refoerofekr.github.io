@@ -29,7 +29,7 @@ a {
 
 .headerContainer {
 	max-width: 800px;
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	padding-top: 50px;
 }
@@ -49,7 +49,7 @@ a {
 
 .container {
 	max-width: 800px;
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	padding-top: 50px;
 }
@@ -200,7 +200,7 @@ button {
 			</li>
 			<li class="connect">
 				<a class="connectLink" href = #>
-					Connect wallet
+					Log In
 				</a>
 			</li>
 		</ul>
@@ -216,7 +216,7 @@ button {
 				<div class="mainHeadersLinks">
 					<a href="#" class="moreinfoLink">More Info</a>
 					<a class="connectLink" href = #>
-						Connect wallet
+						Log In
 					</a>
 				</div>
 			</div>
@@ -240,7 +240,7 @@ button {
 						<div class="playersDisplay">Players: <span id="players">0</span></div>
 					</div>
 					<div class="timerDisplay">					
-						<div id='seconds'>10.00s</div>
+						<div id='seconds'>9.99s</div>
 						<div class="bars">
 							<div id = 'barB'></div>
 							<div class="progressBar" id = 'bar'></div>
@@ -258,7 +258,6 @@ button {
 					</div>
 					<div class="crash">
 						<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill='#8F7DE1'><path d="M315.118-265Q336-265 350.5-279.618q14.5-14.617 14.5-35.5Q365-336 350.382-350.5q-14.617-14.5-35.5-14.5Q294-365 279.5-350.382q-14.5 14.617-14.5 35.5Q265-294 279.618-279.5q14.617 14.5 35.5 14.5Zm0-330Q336-595 350.5-609.618q14.5-14.617 14.5-35.5Q365-666 350.382-680.5q-14.617-14.5-35.5-14.5Q294-695 279.5-680.382q-14.5 14.617-14.5 35.5Q265-624 279.618-609.5q14.617 14.5 35.5 14.5Zm165 165Q501-430 515.5-444.618q14.5-14.617 14.5-35.5Q530-501 515.382-515.5q-14.617-14.5-35.5-14.5Q459-530 444.5-515.382q-14.5 14.617-14.5 35.5Q430-459 444.618-444.5q14.617 14.5 35.5 14.5Zm165 165Q666-265 680.5-279.618q14.5-14.617 14.5-35.5Q695-336 680.382-350.5q-14.617-14.5-35.5-14.5Q624-365 609.5-350.382q-14.5 14.617-14.5 35.5Q595-294 609.618-279.5q14.617 14.5 35.5 14.5Zm0-330Q666-595 680.5-609.618q14.5-14.617 14.5-35.5Q695-666 680.382-680.5q-14.617-14.5-35.5-14.5Q624-695 609.5-680.382q-14.5 14.617-14.5 35.5Q595-624 609.618-609.5q14.617 14.5 35.5 14.5ZM189-95q-39.05 0-66.525-27.475Q95-149.95 95-189v-582q0-39.463 27.475-67.231Q149.95-866 189-866h582q39.463 0 67.231 27.769Q866-810.463 866-771v582q0 39.05-27.769 66.525Q810.463-95 771-95H189Zm0-94h582v-582H189v582Zm0-582v582-582Z"/></svg>
-
 						<div class='gameName'>
 							Roulette
 						</div>
@@ -327,8 +326,6 @@ function startTimer() {
 			timerDisplay.style.color = '#FF004D';			
 			timerButton.removeAttribute('disabled');
 			timerButton.style.opacity = '100%';
-
-			clearInterval(test);
 			actualCoef = 1;}
 		if (gameCoef<1.01){		
 			clearInterval(test);;
