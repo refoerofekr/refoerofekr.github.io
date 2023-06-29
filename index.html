@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SiteName</title>
+	<title>TonLoot - Home</title>
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@700&display=swap');
 
@@ -38,6 +38,38 @@ a {
 }
 h1 {
 	font-size: 40px;
+}
+
+:root {  
+  --violet_main: rgb(174, 156, 255);
+  --violet_dark: rgb(106, 53, 156);
+  --pink: rgb(184, 43, 207);
+}
+
+
+
+@keyframes sex{
+	from {
+		background-position: 0% center;
+	}
+	to {
+		background-position: 200% center;
+	}
+}
+
+
+.tonloot {
+	background:linear-gradient(
+		to right,
+		var(--violet_main),
+		var(--violet_dark),
+		var(--pink),
+		var(--violet_main));
+	white-space: nowrap;
+	background-size: 200%;
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	animation: sex 4s linear infinite;
 }
 
 .aboutSite {
@@ -225,61 +257,7 @@ button {
 	</div>
 </div>
 
-<script type="text/javascript">
-let timer;
-const timerDisplay = document.getElementById('seconds');
-let actualCoef = 1;
-document.getElementById('timerButton').addEventListener('click', startTimer);
-
-// функция запуска таймера
-function startTimer() {	 
-	let timerButton = document.getElementById('timerButton')
-	timerButton.style.opacity = '75%';
-	timerButton.setAttribute('disabled', '');	
-    let gameCoef = Math.random()*5;
-	let seconds = 1000; 
-	let bar_width = 100;
-	  
-	timerDisplay.textContent = seconds; 
-		 
-	timer = setInterval(() => {   
-	timerDisplay.style.color = '#fff';
-	document.getElementById('bar').style.display = 'block';
-	bar_width = bar_width-0.1; 
-	seconds--;
-	document.getElementById('bar').style.width = bar_width + '%'; 
-	players.innerHTML = '1';
-	timerDisplay.textContent = (seconds/100).toFixed(2) + 's';
-	// когда таймер доходит до нуля
-	if (seconds === 0) {
-	 	console.log('test1')
-	 	clearInterval(timer);
-	 	console.log('test2')
-		timerDisplay.innerHTML = 'x1.00';
-		timerDisplay.style.color = '#8F7DE1';
-		let test = setInterval(function coefCounter(){
-			document.getElementById('bar').style.display = 'none';
-			actualCoef += 0.01;
-			timerDisplay.innerHTML = 'x' + actualCoef.toFixed(2);
-		    // выполняется нормально 
-		    console.log(gameCoef)
-		if (actualCoef > gameCoef){
-			clearInterval(test);
-			timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2)
-			timerDisplay.style.color = '#FF004D';			
-			timerButton.removeAttribute('disabled');
-			timerButton.style.opacity = '100%';
-			actualCoef = 1;}
-		if (gameCoef<1.01){		
-			clearInterval(test);
-			timerDisplay.innerHTML = 'x1.00';
-			timerDisplay.style.color = '#FF004D';			
-			timerButton.removeAttribute('disabled');
-			timerButton.style.opacity = '100%';
-			actualCoef = 1;}
-			}, 150)}
-	}, 10);}
-</script>
+ 
 
 </body>
 </html>
