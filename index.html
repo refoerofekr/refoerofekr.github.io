@@ -20,6 +20,8 @@ body {
 
 ul, li {
 	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 a {
@@ -42,8 +44,8 @@ h1 {
 
 :root {  
   --violet_main: rgb(174, 156, 255);
-  --violet_dark: rgb(106, 53, 156);
-  --pink: rgb(184, 43, 207);
+  --violet_dark: rgb(193, 92, 255);
+  --pink: rgb(217, 156, 255);
 }
 
 @keyframes sex{
@@ -85,7 +87,6 @@ h1 {
 
 .back {
 	background-color: #191D23;
-	padding: 10px 20px 10px 20px;
 	border-radius: 10px;
 	opacity: 75%;
 }
@@ -113,7 +114,6 @@ h1 {
 	max-height: 400px;
 	height: 400px;
 	background-color: #191D23;
-	border-radius: 20px 20px 0px 0px;
 	margin-top: 10px;
   	justify-content: center;
 	align-items: center;
@@ -121,6 +121,7 @@ h1 {
 
 .timerDisplay {
 	text-align: center;
+	align-items: center;
 	padding-top: 85px;
 	overflow: hidden;
 }
@@ -164,14 +165,12 @@ h1 {
 	padding-top: 20px;
 }
 
-.lastCoefs {
-	padding-top: 100px;
-}
-
 .lastcoefsList {
 	color: #777;
 	display: flex;
-	overflow: scroll;
+	margin: 0 auto;
+	padding-top: 120px;
+	overflow: overlay;
 }	
 
 .lastcoefsList::-webkit-scrollbar {
@@ -180,7 +179,6 @@ h1 {
 
 	
 .lastcoefsList li {
-	margin-left: 5px;
 	padding: 10px;
 }
 
@@ -189,28 +187,12 @@ button {
 	color: #AE9CFF;
 	width: 100%;
 	padding: 20px;
-	border-radius: 0px 0px 20px 20px;
 	border: none;
 	margin-top: 5px;
 	font-family: 'Open-Sans', sans-serif;
 	font-size: 15px;
 }
-#crashRocket {
-	display: none;
-}
 
-.rouletteGame {
-	padding-top: 20px;
-}
-
-.rouletteDisplay {
-	width: 100%;
-	max-height: 400px;
-	height: 400px;
-	margin-top: 10px;
-	background-color: #191D23;
-	border-radius: 20px 20px 0px 0px;
-}
 </style>
 <title>TonLoot Home</title>
 </head>
@@ -247,43 +229,26 @@ button {
 							<div id = 'barB'></div>
 							<div class="progressBar" id = 'bar'></div>
 						</div>
-					<div class="lastCoefs">
 						<ul class="lastcoefsList">
-							<li id="coef1">x0.00</li>
-							<li id="coef2">x0.00</li>
-							<li id="coef3">x0.00</li>
-							<li id="coef4">x0.00</li>
-							<li id="coef5">x0.00</li>
-							<li id="coef6">x0.00</li>
-							<li id="coef7">x0.00</li>
-							<li id="coef8">x0.00</li>
-							<li id="coef9">x0.00</li>	
-							<li id="coef10">x0.00</li>
-							<li id="coef11">x0.00</li>
+							<li id="coef1">0.00</li>
+							<li id="coef2">0.00</li>
+							<li id="coef3">0.00</li>
+							<li id="coef4">0.00</li>
+							<li id="coef5">0.00</li>
+							<li id="coef6">0.00</li>
+							<li id="coef7">0.00</li>
+							<li id="coef8">0.00</li>
+							<li id="coef9">0.00</li>	
+							<li id="coef10">0.00</li>
+							<li id="coef11">0.00</li>
+							<li id="coef12">0.00</li>
+							<li id="coef13">0.00</li>
+							<li id="coef14">0.00</li>
+							<li id="coef15">0.00</li>							
 						</ul>
-					</div>
 					</div>
 				 </div>	
 			   	<button class="button" id = 'timerButton'>Join</button>
-			</div>
-		
-			<div class="rouletteGame">
-				<div class="aboutGame">
-					<div class="back">
-						<svg xmlns="http://www.w3.org/2000/svg" height="10" viewBox="0 -960 960 960" width="10" fill='#777'><path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z"/></svg>
-						<a href="#" >Back</a>
-					</div>
-					<div class="crash">
-						<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill='#8F7DE1'><path d="M315.118-265Q336-265 350.5-279.618q14.5-14.617 14.5-35.5Q365-336 350.382-350.5q-14.617-14.5-35.5-14.5Q294-365 279.5-350.382q-14.5 14.617-14.5 35.5Q265-294 279.618-279.5q14.617 14.5 35.5 14.5Zm0-330Q336-595 350.5-609.618q14.5-14.617 14.5-35.5Q365-666 350.382-680.5q-14.617-14.5-35.5-14.5Q294-695 279.5-680.382q-14.5 14.617-14.5 35.5Q265-624 279.618-609.5q14.617 14.5 35.5 14.5Zm165 165Q501-430 515.5-444.618q14.5-14.617 14.5-35.5Q530-501 515.382-515.5q-14.617-14.5-35.5-14.5Q459-530 444.5-515.382q-14.5 14.617-14.5 35.5Q430-459 444.618-444.5q14.617 14.5 35.5 14.5Zm165 165Q666-265 680.5-279.618q14.5-14.617 14.5-35.5Q695-336 680.382-350.5q-14.617-14.5-35.5-14.5Q624-365 609.5-350.382q-14.5 14.617-14.5 35.5Q595-294 609.618-279.5q14.617 14.5 35.5 14.5Zm0-330Q666-595 680.5-609.618q14.5-14.617 14.5-35.5Q695-666 680.382-680.5q-14.617-14.5-35.5-14.5Q624-695 609.5-680.382q-14.5 14.617-14.5 35.5Q595-624 609.618-609.5q14.617 14.5 35.5 14.5ZM189-95q-39.05 0-66.525-27.475Q95-149.95 95-189v-582q0-39.463 27.475-67.231Q149.95-866 189-866h582q39.463 0 67.231 27.769Q866-810.463 866-771v582q0 39.05-27.769 66.525Q810.463-95 771-95H189Zm0-94h582v-582H189v582Zm0-582v582-582Z"/></svg>
-						<div class='gameName'>
-							Roulette
-						</div>
-					</div>
-				</div>
-
-				<div class="rouletteDisplay">
-				</div>	
-					<button class="buttonRoulette" id = 'timerButton'>Join</button>
 			</div>
 		</div>
 	</div>
@@ -327,7 +292,7 @@ function startTimer() {
 		    timerDisplay.style.color = '#FF004D';			
 		    timerButton.removeAttribute('disabled');
 	   	    timerButton.style.opacity = '100%';
-	   	    document.getElementById('coef1').innerHTML = 'x' + gameCoef.toFixed(2);  
+	   	    document.getElementById('coef1').innerHTML = gameCoef.toFixed(2);  
 		   	document.getElementById('coef1').style.color = '#8F7DE1'
 		    actualCoef = 1;}
 		if (gameCoef<1.01){		
