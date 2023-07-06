@@ -35,9 +35,9 @@ h1 {
 }
 
 :root {  
-  --violet_main: rgb(174, 156, 255);
-  --violet_dark: rgb(220, 140, 255);
-  --pink: rgb(217, 156, 255);
+  --violet_main: rgb(168, 85, 250);
+  --violet_dark: rgb(147, 51, 234);
+  --pink: rgb(192, 132, 252);
   --gray: #777;
 }
 
@@ -158,7 +158,6 @@ h1 {
 	width: 0;
 }
 
-	
 .lastcoefsList li {
 	padding: 10px;
 }
