@@ -25,19 +25,17 @@ a {
 	max-width: 800px;
 	width: 90%;
 	margin: 0 auto;
-	padding-top: 50px;
+	padding-top: 30px;
 }
-.mainContent {
-	margin-top: 20px;
-}
+
 h1 {
 	font-size: 40px;
 }
 
 :root {  
   --violet_main: rgb(168, 85, 250);
-  --violet_dark: rgb(147, 51, 234);
-  --pink: rgb(192, 132, 252);
+  --violet_dark: rgb(192, 132, 252);
+  --pink: rgb(217, 70, 240);
   --gray: #777;
 }
 
@@ -60,8 +58,8 @@ h1 {
 	white-space: nowrap;
 	background-size: 200%;
 	-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
-  	animation: sex 4s linear infinite;
+  -webkit-text-fill-color: transparent;
+  animation: sex 4s linear infinite;
 }
 
 .aboutSite {
@@ -75,7 +73,7 @@ h1 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 20px;
+	margin-top: 5px;
 }
 
 .crashGame {
@@ -104,7 +102,7 @@ h1 {
 	background-color: #191D23;
 	margin-top: 10px;
 	border-radius: 20px;
-  	justify-content: center;
+  justify-content: center;
 	align-items: center;
 }
 
@@ -162,17 +160,7 @@ h1 {
 	padding: 10px;
 }
 
-button {
-	background-color: #191D23;
-	color: var(--violet_main);
-	width: 100%;
-	padding: 20px;
-	border: none;
-	margin-top: 5px;
-	font-family: 'Open-Sans', sans-serif;
-	font-size: 15px;
-	border-radius: 20px;
-}
+
 
 .footer {
 	color: var(--gray);
