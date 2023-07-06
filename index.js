@@ -1,13 +1,9 @@
 let timer;
 const timerDisplay = document.getElementById('seconds');
 let actualCoef = 1;
-document.getElementById('timerButton').addEventListener('click', startTimer);
 
 // функция запуска таймера
-function startTimer() {	 
-    let timerButton = document.getElementById('timerButton')
-    timerButton.style.opacity = '75%';
-    timerButton.setAttribute('disabled', '');	
+function startTimer() {	 	
     let gameCoef = Math.random()*5; // генерация игрового коэффициента
     let seconds = 1000; // время для таймера
     let bar_width = 100; // длина полоски таймера
@@ -18,7 +14,6 @@ function startTimer() {
 	bar_width = bar_width-0.1; // изменение полоски таймера
 	seconds--; // изменение времени таймера
 	document.getElementById('bar').style.width = bar_width + '%'; // изменение длины полоски таймера
-	players.innerHTML = '1'; // вывод количества игроков
 	timerDisplay.textContent = (seconds/100).toFixed(2) + 's'; // вывод таймера
 	// когда таймер доходит до нуля
 	if (seconds === 0) {
@@ -34,9 +29,7 @@ function startTimer() {
 		if (actualCoef > gameCoef){
 		    clearInterval(test);
 		    timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2) // вывод конечного коэффициента
-		    timerDisplay.style.color = '#FF004D';			
-		    timerButton.removeAttribute('disabled');
-	   	    timerButton.style.opacity = '100%';
+		    timerDisplay.style.color = '#FF004D';
 	   	    document.getElementById('coef1').innerHTML = gameCoef.toFixed(2);  // добавление первого коэффициента в список
 		   	document.getElementById('coef1').style.color = '#8F7DE1'
 		    actualCoef = 1;}
@@ -46,11 +39,11 @@ function startTimer() {
 		    timerDisplay.innerHTML = 'x1.00';
 		   	document.getElementById('coef1').innerHTML = '1.00'
 		   	document.getElementById('coef1').style.color = '#FF004D'
-		    timerDisplay.style.color = '#FF004D';			
-		    timerButton.removeAttribute('disabled');
-		    timerButton.style.opacity = '100%';
+		    timerDisplay.style.color = '#FF004D';
 		    actualCoef = 1;}
 		}, 150 // частота обновления дисплея коэффициента
 		)}
 	}, 10 // частота обновления таймера
 	);}
+
+	startTimer();
