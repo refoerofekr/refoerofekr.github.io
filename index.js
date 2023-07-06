@@ -19,7 +19,7 @@ function startTimer() {
 	if (seconds === 0) {
 	    clearInterval(timer); 
 	    timerDisplay.innerHTML = 'x1.00';
-	    timerDisplay.style.color = '#8F7DE1';
+	    timerDisplay.style.color = '#A855FA';
 	    // процесс игры 
 	    let test = setInterval(function coefCounter(){
 	        actualCoef += 0.01;
