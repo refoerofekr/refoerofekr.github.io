@@ -4,11 +4,10 @@ let actualCoef = 1;
 
 // функция запуска таймера
 function startTimer() {	 	
-    clearInterval(startTimer);    
+    clearInterval(startTimer);   
     let gameCoef = Math.random()*5; // генерация игрового коэффициента
     let seconds = 1000; // время для таймера
     let bar_width = 100; // длина полоски таймера
-	  
     timerDisplay.textContent = seconds;
     timer = setInterval(() => {   
 	timerDisplay.style.color = '#fff';
