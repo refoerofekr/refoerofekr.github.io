@@ -37,7 +37,24 @@ h1 {
   --violet_dark: rgb(192, 132, 252);
   --pink: rgb(217, 70, 240);
   --gray: #777;
+  --dark_gray: #191D23;
 }
+
+.logIn {
+	background-color: var(--dark_gray);
+	color: var(--gray);
+	padding: 10px 15px 10px 15px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	max-width: 70px;
+}
+.logIn svg {
+	fill: var(--gray);
+	padding-right: 5px;
+}
+
 
 @keyframes sex{
 	from {
@@ -142,6 +159,19 @@ h1 {
 .bars {
 	padding-top: 20px;
 }
+#rocket{
+	margin-top: -20px;
+	animation: rocketFlying 0.2s ease infinite;
+}
+
+@keyframes rocketFlying{
+	0%, 100% {
+		transform: translateY(-1px);
+	}
+	50% {
+		transform: translateY(1px);
+	}
+}
 
 .lastcoefsList {
 	color: var(--gray);
@@ -162,6 +192,9 @@ h1 {
 
 .footer {
 	color: var(--gray);
-	text-align: center;
-	padding-top: 100px;
+	padding-top: 80px;
+}
+
+.footer li {
+	padding-top: 5px;
 }
