@@ -4,6 +4,7 @@ let actualCoef = 1;
 
 // функция запуска таймера
 function startTimer() {	 	
+    clearInterval(startTimer);    
     let gameCoef = Math.random()*5; // генерация игрового коэффициента
     let seconds = 1000; // время для таймера
     let bar_width = 100; // длина полоски таймера
@@ -32,7 +33,8 @@ function startTimer() {
 		    timerDisplay.style.color = '#FF004D';
 	   	    document.getElementById('coef1').innerHTML = gameCoef.toFixed(2);  // добавление первого коэффициента в список
 		   	document.getElementById('coef1').style.color = '#777'
-		    actualCoef = 1;}
+		    actualCoef = 1;
+		    setTimeout(startTimer, 5000)}
 		// если конечный коэффициент сгенерировался меньше единицы
 		if (gameCoef<1.01){		
 		    clearInterval(test);
@@ -40,8 +42,9 @@ function startTimer() {
 		   	document.getElementById('coef1').innerHTML = '1.00'
 		   	document.getElementById('coef1').style.color = '#FF004D'
 		    timerDisplay.style.color = '#FF004D';
-		    actualCoef = 1;}
-		}, 150 // частота обновления дисплея коэффициента
+		    actualCoef = 1;
+		    setTimeout(startTimer, 5000)}
+		}, 100 // частота обновления дисплея коэффициента
 		)}
 	}, 10 // частота обновления таймера
 	);}
