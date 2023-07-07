@@ -29,21 +29,20 @@ function startTimer() {
 		if (actualCoef > gameCoef){
 		    clearInterval(test);
 		    timerDisplay.innerHTML = 'x' + gameCoef.toFixed(2) // вывод конечного коэффициента
-		    timerDisplay.style.color = '#A855FA';
+		    timerDisplay.style.color = '#FF004D';
 	   	    document.getElementById('coef1').innerHTML = gameCoef.toFixed(2);  // добавление первого коэффициента в список
-		   	document.getElementById('coef1').style.color = '#8F7DE1'
+		   	document.getElementById('coef1').style.color = '#777'
 		    actualCoef = 1;}
 		// если конечный коэффициент сгенерировался меньше единицы
 		if (gameCoef<1.01){		
 		    clearInterval(test);
 		    timerDisplay.innerHTML = 'x1.00';
 		   	document.getElementById('coef1').innerHTML = '1.00'
-		   	document.getElementById('coef1').style.color = '#A855FA'
-		    timerDisplay.style.color = '#A855FA';
+		   	document.getElementById('coef1').style.color = '#FF004D'
+		    timerDisplay.style.color = '#FF004D';
 		    actualCoef = 1;}
 		}, 150 // частота обновления дисплея коэффициента
 		)}
 	}, 10 // частота обновления таймера
 	);}
-
-	startTimer();
+    startTimer();
