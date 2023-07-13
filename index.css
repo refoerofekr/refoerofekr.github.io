@@ -43,18 +43,17 @@ h1 {
 .logIn {
 	background-color: var(--dark_gray);
 	color: var(--gray);
-	padding: 10px 15px 10px 15px;
+	padding: 30px;
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
 	margin-left: auto;
-	max-width: 70px;
+
 }
 .logIn svg {
 	fill: var(--gray);
 	padding-right: 5px;
 }
-
 
 @keyframes sex{
 	from {
@@ -159,10 +158,6 @@ h1 {
 .bars {
 	padding-top: 20px;
 }
-#rocket{
-	margin-top: -20px;
-	animation: rocketFlying 0.2s ease infinite;
-}
 
 @keyframes rocketFlying{
 	0%, 100% {
@@ -192,9 +187,5 @@ h1 {
 
 .footer {
 	color: var(--gray);
-	padding-top: 80px;
-}
-
-.footer li {
-	padding-top: 5px;
+	padding-top: 50px;
 }
