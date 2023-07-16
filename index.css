@@ -159,15 +159,6 @@ h1 {
 	padding-top: 20px;
 }
 
-@keyframes rocketFlying{
-	0%, 100% {
-		transform: translateY(-1px);
-	}
-	50% {
-		transform: translateY(1px);
-	}
-}
-
 .lastcoefsList {
 	color: var(--gray);
 	display: flex;
